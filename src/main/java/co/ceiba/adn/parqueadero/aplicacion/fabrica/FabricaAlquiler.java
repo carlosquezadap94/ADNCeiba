@@ -20,7 +20,6 @@ public class FabricaAlquiler {
 		
 		return new AlquilerEspacio(
 								 comandoAlquilerProducto.getPlaca(),
-										comandoAlquilerProducto.getFechaHoraIngreso(),
 										comandoAlquilerProducto.getTipoVehiculo());
 	}
 

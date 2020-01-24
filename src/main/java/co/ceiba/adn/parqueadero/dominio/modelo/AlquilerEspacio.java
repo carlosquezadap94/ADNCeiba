@@ -2,63 +2,41 @@ package co.ceiba.adn.parqueadero.dominio.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * @author carlos.quezada
  *
  */
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class AlquilerEspacio {
 	
 	private String placa;
+	private String tipoVehiculo;
+	public int id;
 	private Date fechaHoraIngreso;
-	private TipoVehiculo tipoVehiculo;
-
+	private Date fechaHoraSalida;
 	
-	public AlquilerEspacio( String placa, Date fechaHoraIngreso,
+	
+	public AlquilerEspacio( String placa,
 			String tipoVehiculo)
 	{
-		super();
 		this.placa = placa;
-		this.fechaHoraIngreso = fechaHoraIngreso;
-		this.tipoVehiculo = validar(tipoVehiculo);
-	}
-	
-	public TipoVehiculo validar(String tipo) 
-	{
-		for (TipoVehiculo tipoV : TipoVehiculo.values())
-		{ 
-		    if(tipo.equals(tipoV)) 
-		    {
-		    	return tipoV;
-		    }
-		}
-	
-		return TipoVehiculo.NO_IDENTIFICADO;
+		this.tipoVehiculo = tipoVehiculo;
 	}
 
-
-
-	/**
-	 * @return the placa
-	 */
-	public String getPlaca() {
-		return placa;
-	}
-
-	/**
-	 * @return the fechaHoraIngreso
-	 */
-	public Date getFechaHoraIngreso() {
-		return fechaHoraIngreso;
-	}
-
-
-	/**
-	 * @return the tipoVehiculo
-	 */
-	public TipoVehiculo getTipoVehiculo() {
-		return tipoVehiculo;
-	}
 	
-	
-	
+
 }

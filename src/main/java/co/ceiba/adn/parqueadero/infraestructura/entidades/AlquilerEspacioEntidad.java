@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,12 +11,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import co.ceiba.adn.parqueadero.dominio.modelo.TipoVehiculo;
+import lombok.Getter;
+import lombok.Setter;
+
 
 /**
  * @author carlos.quezada
  *
  */
+@Getter
+@Setter
 @Entity
 @Table(name = "alquilerEspacio")
 public class AlquilerEspacioEntidad {
@@ -28,21 +31,23 @@ public class AlquilerEspacioEntidad {
 	public int id;
 	
 	@Column(name = "fechaInicio")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_hora_ingreso;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fechaHoraIngreso;
 	
 
 	@Column(name = "fechaSalida")
 	@Temporal(TemporalType.DATE)
-	private Date fecha_hora_salida;
+	private Date fechaHoraSalida;
 	
-	@Column(name = "tipo")
-	@Enumerated
-	public TipoVehiculo tipoVehiculo;
+	@Column(name = "tipoVehiculo")
+	public String tipoVehiculo;
 
 	
 	@Column(name = "placa")
 	public String placa;
+	
+	
+	
 
 
 }

@@ -1,8 +1,6 @@
-package co.ceiba.adn.parqueadero.infraestructura;
+package co.ceiba.adn.parqueadero.infraestructura.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import co.ceiba.adn.parqueadero.dominio.modelo.TipoVehiculo;
 import co.ceiba.adn.parqueadero.infraestructura.entidades.AlquilerEspacioEntidad;
 
 /**
@@ -19,9 +17,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AlquilerEspacioResitorioJPA extends JpaRepository<AlquilerEspacioEntidad,Long>
 {
-	@Query("SELECT COUNT(*) FROM alquilerEspacio a where where a.tipo_vehiculo = ?1 ")
-	public void contarAutos(TipoVehiculo tipoVehiculo);
+	@Query("SELECT COUNT(a) FROM AlquilerEspacioEntidad a where a.tipoVehiculo = ?1 ")
+	public int contarAutos(String tipoVehiculo);
 	
 	
-	//select CAST(COUNT(*) AS BIT) FROM alquilerEspacio WHERE (UserID = 20070022)
+	@Query("SELECT a FROM AlquilerEspacioEntidad a where a.placa = ?1 ")
+	public AlquilerEspacioEntidad buscar(String placa);
 }

@@ -7,5 +7,5 @@ package co.ceiba.adn.parqueadero.dominio.modelo;
 public abstract class Vehiculo 
 {
 	public String placa;
-	public TipoVehiculo tipoVehiculo;
+	public String tipoVehiculo;
 }

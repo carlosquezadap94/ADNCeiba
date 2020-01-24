@@ -13,8 +13,6 @@ public class ComandoAlquilerEspacio {
 	
 	public String placa;
 	
-	private Date fechaHoraIngreso;
-	
 	
 	public String tipoVehiculo;
 
@@ -26,14 +24,7 @@ public class ComandoAlquilerEspacio {
 		return placa;
 	}
 
-	/**
-	 * @return the fechaHoraIngreso
-	 */
-	public Date getFechaHoraIngreso() {
-		return fechaHoraIngreso;
-	}
-
-
+	
 	/**
 	 * @return the tipoVehiculo
 	 */
@@ -46,14 +37,15 @@ public class ComandoAlquilerEspacio {
 	 * @param fechaHoraIngreso
 	 * @param tipoVehiculo
 	 */
-	public ComandoAlquilerEspacio(String placa, Date fechaHoraIngreso, Date fechaHoraSalida,
+	public ComandoAlquilerEspacio(String placa,
 			String tipoVehiculo) {
 		super();
 		
 		this.placa = placa;
-		this.fechaHoraIngreso = fechaHoraIngreso;
 		this.tipoVehiculo = tipoVehiculo;
 	}
+	
+	public ComandoAlquilerEspacio() {}
 	
 	
 	

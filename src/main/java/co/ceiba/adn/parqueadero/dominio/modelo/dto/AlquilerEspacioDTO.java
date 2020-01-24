@@ -8,12 +8,12 @@ public class AlquilerEspacioDTO {
 	
 	public String placa;
 	
-	private Date fecha_hora_ingreso;
+	private Date fechaHoraIngreso;
 	
 
-	private Date fecha_hora_salida;
+	private Date fechaHoraSalida;
 	
-	public int tipo_vehiculo;
+	public int tipoVehiculo;
 
 	/**
 	 * @return the id
@@ -33,21 +33,21 @@ public class AlquilerEspacioDTO {
 	 * @return the fecha_hora_ingreso
 	 */
 	public Date getFecha_hora_ingreso() {
-		return fecha_hora_ingreso;
+		return fechaHoraIngreso;
 	}
 
 	/**
 	 * @return the fecha_hora_salida
 	 */
 	public Date getFecha_hora_salida() {
-		return fecha_hora_salida;
+		return fechaHoraSalida;
 	}
 
 	/**
 	 * @return the tipo_vehiculo
 	 */
 	public int getTipo_vehiculo() {
-		return tipo_vehiculo;
+		return tipoVehiculo;
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class AlquilerEspacioDTO {
 		super();
 		this.id = id;
 		this.placa = placa;
-		this.fecha_hora_ingreso = fecha_hora_ingreso;
-		this.fecha_hora_salida = fecha_hora_salida;
-		this.tipo_vehiculo = tipo_vehiculo;
+		this.fechaHoraIngreso = fecha_hora_ingreso;
+		this.fechaHoraSalida = fecha_hora_salida;
+		this.tipoVehiculo = tipo_vehiculo;
 	}
 	
 	

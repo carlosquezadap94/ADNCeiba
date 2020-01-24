@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import co.ceiba.adn.parqueadero.dominio.modelo.AlquilerEspacio;
 import co.ceiba.adn.parqueadero.dominio.modelo.dto.AlquilerEspacioDTO;
 import co.ceiba.adn.parqueadero.dominio.puerto.repositorio.RepositorioAlquiler;
-import co.ceiba.adn.parqueadero.infraestructura.AlquilerEspacioResitorioJPA;
 import co.ceiba.adn.parqueadero.infraestructura.entidades.AlquilerEspacioEntidad;
+import co.ceiba.adn.parqueadero.infraestructura.jpa.AlquilerEspacioResitorioJPA;
 
 /**
  * @author carlos.quezada
@@ -27,10 +27,8 @@ public class RepositorioAlquilerEspacioPersistente implements RepositorioAlquile
 	
 	@Override
 	public void guardarEspacionAlquiler(AlquilerEspacio alquilerEspacio) {
-
 		AlquilerEspacioEntidad alquilerEspacioEntidad = modelMapper.map(alquilerEspacio, AlquilerEspacioEntidad.class);
 		alquilerEspacioResitorioJPA.save(alquilerEspacioEntidad);
-		
 	}
 
 
@@ -42,18 +40,24 @@ public class RepositorioAlquilerEspacioPersistente implements RepositorioAlquile
 
 
 	@Override
-	public AlquilerEspacioDTO buscar(String placa) {
-		// TODO Auto-generated method stub
-		return null;
+	public AlquilerEspacioDTO buscar(String placa) 
+	{
+		AlquilerEspacioEntidad alquilerEspacioEntidad = alquilerEspacioResitorioJPA.buscar(placa);
+		if (alquilerEspacioEntidad != null)
+		{
+			return modelMapper.map(alquilerEspacioEntidad, AlquilerEspacioDTO.class);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 
 	@Override
-	public int cantCupos() {
-		
-		
-		return 0;
-		
+	public int cantCupos(String tipoVehiculo)
+	{
+		return alquilerEspacioResitorioJPA.contarAutos(tipoVehiculo);	
 	}
 
 

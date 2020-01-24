@@ -15,5 +15,5 @@ public interface RepositorioAlquiler
 	public void guardarEspacionAlquiler(AlquilerEspacio alquilerEspacio);	
 	public void realizarPago();	
 	public AlquilerEspacioDTO buscar(String placa);
-	public int cantCupos();
+	public int cantCupos(String tipoVehiculo);
 }
